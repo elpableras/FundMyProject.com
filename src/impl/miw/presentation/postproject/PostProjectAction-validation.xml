@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+		"http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+<validators>
+
+	<field name="titulo">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="titulo.required"/>
+		</field-validator>
+	</field>
+	
+	<field name="descripcion">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="descri.required"/>
+		</field-validator>
+		<field-validator type="stringlength">
+			<param name="maxLength">300</param>
+			<param name="trim">true</param>
+			<message key="descri.length"/>
+		</field-validator>
+	</field>
+	
+	<field name="coste">
+        <field-validator type="required">
+        	   <message key="coste.required"/>
+        </field-validator>
+        <field-validator type="regex">
+			<param name="expression">^\d{0,2}(\.\d{0,2}){0,1}$</param>
+			<message key="coste.required"/>
+		</field-validator>
+    </field>
+    
+    <field name="fecha">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="fecha.required"/>
+		</field-validator>
+	</field>
+	
+	<field name="promotor">
+		<field-validator type="requiredstring">
+			<param name="trim">true</param>
+			<message key="promotor.required"/>
+		</field-validator>
+	</field>
+	
+	<field name="porcentaje">
+         <field-validator type="double">
+             <param name="minExclusive">-0.0</param>
+             <param name="maxExclusive">100.1</param>
+             <message key="porcentaje.required"/>
+         </field-validator>
+     </field>
+
+</validators>

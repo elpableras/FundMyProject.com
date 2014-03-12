@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd ">
+<struts>
+	<constant name="struts.custom.i18n.resources" value="global" />
+
+	<package name="example" extends="struts-default">
+	
+	<interceptors>
+			<interceptor name="login"
+				class="impl.miw.presentation.login.LoginInterceptor" />
+
+			<interceptor-stack name="dasdiLoginStack">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="login" /> <!-- el nuestro -->
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="dasdiLoginStack" />
+
+		<global-results>
+			<result name="error">/WEB-INF/jsps/error.jsp</result>
+			<result name="login" type="redirect">Login</result>
+		</global-results>
+		
+		<action name="Login" class="impl.miw.presentation.login.LoginAction">
+			<result type="chain">Counter</result>
+			<result name="input">/WEB-INF/jsps/login.jsp</result>
+		</action>
+		
+		<action name="Post" class="impl.miw.presentation.postproject.PostProjectAction">
+			<result type="chain">SeekProjects</result>
+			<result name="input">/WEB-INF/jsps/postproject.jsp</result>
+		</action>
+		
+		<action name="Share" class="impl.miw.presentation.pendingproject.PendingProjectAction">
+			<result type="chain">ShareholderProject</result>
+			<result name="input">/WEB-INF/jsps/shareproject.jsp</result>
+		</action>
+		
+		<action name="Participe" class="impl.miw.presentation.participeproject.ParticipeProjectAction">
+			<result type="chain">SeekProjects</result>
+			<result name="input">/WEB-INF/jsps/participeproject.jsp</result>
+		</action>
+		
+		<action name="View" class="impl.miw.presentation.participant.ParticipantsProjectAction">
+			<result type="chain">ViewParticipants</result>
+			<result name="input">/WEB-INF/jsps/participeproject.jsp</result>
+		</action>
+		
+		<action name="Register" class="impl.miw.presentation.register.RegisterAction">
+			<result type="chain">Index</result>
+			<result name="input">/WEB-INF/jsps/register.jsp</result>
+		</action>
+		
+		<action name="UnLogin" class="impl.miw.presentation.unlogin.UnLoginAction">
+			<result type="redirect">Index</result>
+		</action>
+		
+		<action name="Counter" class="impl.miw.presentation.counter.CounterAction">
+			<result type="redirectAction">SeekProjects</result>
+		</action>
+		
+		<action name="PostProject">
+			<result>/WEB-INF/jsps/postproject.jsp</result>
+		</action>
+		
+		<action name="ParticipateProject">
+			<result>/WEB-INF/jsps/participeproject.jsp</result>
+		</action>
+	
+		<action name="Index">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="SeekProjects" class="impl.miw.presentation.seekprojects.SeekProjectsAction">
+			<result type="chain">ShowProjects</result>
+		</action>
+		
+		<action name="ShowProjects">
+			<result>/WEB-INF/jsps/seekprojects.jsp</result>
+		</action>
+		
+		<action name="ShareholderProject" class="impl.miw.presentation.shareproject.ShareProjectAction">
+			<result>/WEB-INF/jsps/shareproject.jsp</result>
+		</action>
+		
+		<action name="ViewParticipants">
+			<result>/WEB-INF/jsps/viewparticipants.jsp</result>
+		</action>
+
+	</package>
+</struts>
