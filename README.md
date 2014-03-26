@@ -16,7 +16,7 @@ The application complies with the architectural model of n- layers. The persiste
 	- DAO
 • Internationalization, Spanish and English
 • Vertical Scaling
-• Using Struts 2 and Spring Framework (Dependency Injection )
+• Using Struts 2 and Spring Framework (Dependency Injection)
 
 Features:
 
