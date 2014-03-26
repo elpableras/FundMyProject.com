@@ -3,12 +3,23 @@ FundMyProject.com
 
 Se trata de desarrollar un portal orientado a la coordinación de creadores de aplicaciones que requieran financiación para el desarrollo de su proyecto.
 
-La aplicación cumple con el modelo arquitectónico de n-capas. La persistencia se implementa con patrones DAOs y con la base de datos HSQLDB. Además cumple con:
+La aplicación cumple con el modelo arquitectónico de n-capas. La persistencia se implementa con patrones DAOs y se hace uso de la base de datos HYPERSONIC. Además cumple con:
 
-- Uso de Struts 2 en la capa de presentación
+- Utilización de patrones arquitectonicos
+    - Model–view–controller (MVC)
+    - Command
+    - Facade
+    - Factory
+    - Business Delegate
+    - DAO
+- Internacionalización, español e ingles
+- Escalado vertical
+- Uso del Framework Struts 2 y Spring (Inyección de dependencias)
+
+Caracteristicas:
 - Contador de visitas basado en el uso del contexto
-- La autentificación se realiza utilizando un interceptor
-- Validación de los formularios de login, registro y creación de proyectos para que:
+- La autentificación se realiza utilizando interceptores
+- Validación de los formularios de login, registro y creación de proyectos escritos en JSP, cumpliendo que:
     - Todos los campos en todos los formularios deben tener valor, no pueden ser nulos.
     - El user (registro) debe tener al menos entre 5 y 50 caracteres
     - La password (registro) debe tener al menos entre 5 y 50 caracteres
